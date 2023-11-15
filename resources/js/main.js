@@ -1,3 +1,15 @@
+window.addEventListener('hashchange', handleRoute);
+window.addEventListener('load', handleRoute);
+
+async function handleRoute() {
+    let route = window.location.hash.substr(1);
+    if (!route) {
+        route = 'home';
+    }
+    const currentView = await loadViewContent(`resources/views/${route}.html`);
+    const contentDiv = document.querySelector('main#content');
+    contentDiv.innerHTML = currentView;
+}
 
 async function loadViewContent(url) {
     try {
