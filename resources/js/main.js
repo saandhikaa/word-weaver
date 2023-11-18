@@ -53,3 +53,14 @@ Scanning.prototype.openNav = element => {
     navList.classList.remove('-top-[100%]');
     navList.classList.add('top-10');
 };
+
+Scanning.prototype.closeNav = element => {
+    const menuSVG = `<svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 50 50"><g fill="none" stroke="#000" stroke-width="3"><path d="M10 15h30M10 25h30M10 35h30"/></g></svg>`;
+    element.innerHTML = menuSVG;
+    element.classList.remove('closeNav');
+    element.classList.add('openNav');
+    
+    const navList = document.querySelector('#nav-list');
+    navList.classList.remove('top-10');
+    navList.classList.add('-top-[100%]');
+};
