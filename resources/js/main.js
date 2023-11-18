@@ -23,3 +23,20 @@ async function loadViewContent(url) {
         return await loadViewContent('resources/views/404.html');
     }
 }
+
+
+
+function Scanning(){}
+const scan = new Scanning();
+
+document.body.addEventListener('click', element => {
+    const classes = element.target.className.split(' ');
+    
+    classes.forEach(className => {
+        if (className in scan) {
+            scan[className](element.target);
+        }
+    });
+    
+    element.stopPropagation();
+});
