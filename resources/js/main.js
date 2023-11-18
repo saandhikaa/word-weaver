@@ -40,3 +40,16 @@ document.body.addEventListener('click', element => {
     
     element.stopPropagation();
 });
+
+
+
+Scanning.prototype.openNav = element => {
+    const closeSVG = `<svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 50 50"><g fill="none" stroke="#000" stroke-width="3"><path d="M15 15 L35 35 M35 15 L15 35"/></g></svg>`;
+    element.innerHTML = closeSVG;
+    element.classList.remove('openNav');
+    element.classList.add('closeNav');
+    
+    const navList = document.querySelector('#nav-list');
+    navList.classList.remove('-top-[100%]');
+    navList.classList.add('top-10');
+};
